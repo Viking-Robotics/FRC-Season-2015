@@ -1,10 +1,8 @@
 FRC-Season-2015
 ===============
-
-robot code for recycle russsian
-
+robot code for recycle russian
+==============================
 mechanum documentation ref:
-
 /**
      * Drive method for Mecanum wheeled robots.
      *
@@ -21,8 +19,10 @@ mechanum documentation ref:
      * the translation. [-1.0..1.0]
      * @param gyroAngle The current angle reading from the gyro.  Use this to implement field-oriented controls.
      */
-    public void mecanumDrive_Cartesian(double x, double y, double rotation, double gyroAngle) {
-    
- 2015 Java FRC things
- http://wpilib.screenstepslive.com/s/4485/m/13809
+==================================================================================================================
+
+2015 Java FRC things
+http://wpilib.screenstepslive.com/s/4485/m/13809
+
+=================================================
     
