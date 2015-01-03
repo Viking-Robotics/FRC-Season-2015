@@ -1,7 +1,7 @@
 FRC-Season-2015
 ===============
 
-robot code for recycle rush
+robot code for recycle russsian
 
 mechanum documentation ref:
 
@@ -22,3 +22,7 @@ mechanum documentation ref:
      * @param gyroAngle The current angle reading from the gyro.  Use this to implement field-oriented controls.
      */
     public void mecanumDrive_Cartesian(double x, double y, double rotation, double gyroAngle) {
+    
+ 2015 Java Frc things
+ http://wpilib.screenstepslive.com/s/4485/m/13809
+    
