@@ -1,8 +1,7 @@
 FRC-Season-2015
-Recycle Russian
 ===============
 
-2015 Java FRC things
+2015 Java FRC Libraries:
 http://wpilib.screenstepslive.com/s/4485/m/13809
 
 =================================================
