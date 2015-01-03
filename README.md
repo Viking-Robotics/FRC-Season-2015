@@ -23,6 +23,6 @@ mechanum documentation ref:
      */
     public void mecanumDrive_Cartesian(double x, double y, double rotation, double gyroAngle) {
     
- 2015 Java Frc things
+ 2015 Java FRC things
  http://wpilib.screenstepslive.com/s/4485/m/13809
     
