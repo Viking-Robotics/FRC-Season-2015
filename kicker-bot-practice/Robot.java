@@ -1,12 +1,5 @@
 
-    	frontRight = new Talon(3);
-    	rearLeft = new Talon(2);
-    	rearRight = new Talon(4);
-    	myRobot = new RobotDrive(frontLeft,rearLeft,frontRight,rearRight);
-    	stick = new Joystick(1);
-    	//stick.setAxisChannel(Joystick:kTwistAxis, 3);
-    }
-    package org.usfirst.frc.team2928.robot;
+package org.usfirst.frc.team2928.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
@@ -40,6 +33,13 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
     	frontLeft = new Talon(1);
+    	frontRight = new Talon(3);
+    	rearLeft = new Talon(2);
+    	rearRight = new Talon(4);
+    	myRobot = new RobotDrive(frontLeft,rearLeft,frontRight,rearRight);
+    	stick = new Joystick(1);
+    	//stick.setAxisChannel(Joystick:kTwistAxis, 3);
+    }
     /**
      * This function is run once each time the robot enters autonomous mode
      */
