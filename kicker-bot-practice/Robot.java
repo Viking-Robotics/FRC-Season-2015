@@ -67,8 +67,12 @@ public class Robot extends IterativeRobot {
     	 magnitude = stick.getMagnitude();
     	 direction = stick.getDirectionDegrees();
     	 rotation = stick.getX();
-    	myRobot.mecanumDrive_Polar(magnitude, direction, rotation);
-    }
+    	
+    	 while(isOperatorControl() && isEnabled()){
+    		myRobot.mecanumDrive_Polar(magnitude, direction, rotation);
+    		Timer.delay(0.01);
+    		}
+    	    }
 
     
     /**
