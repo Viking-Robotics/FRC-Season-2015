@@ -16,7 +16,7 @@ http://thinktank.wpi.edu/resources/346/ControllingMecanumDrive.pdf
 WPlib Example Robot Setup:
 http://wpilib.screenstepslive.com/s/4485/m/13809/l/145307-creating-your-benchtop-test-program#!prettyPhoto
 
-How to load working mecanum code on to a robot:
+    How to load working mecanum code on to a robot:
 
     1) Open Eclipse.
     2) Start a new Example Robot Project.
