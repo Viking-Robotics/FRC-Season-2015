@@ -14,11 +14,17 @@ WPlib Example Robot Setup:
 http://wpilib.screenstepslive.com/s/4485/m/13809/l/145307-creating-your-benchtop-test-program#!prettyPhoto
 
 How to load working mecanum code on to a robot:
+
 1)Open Eclipse
+
 2)Start a new Example Robot Project.
+
 3)Instead of using "Getting Started" as a template, use the template labeled "Mecanum Drive"
+
 4) When the example loads up, change the variable types of the motor channels to "Talon"
+
 5)Get rid of the lines that mention reversing two of the motors.
+
 6) Deploy to the robot.
 
 Ok Team!
