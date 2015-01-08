@@ -1,95 +1,52 @@
-
 package org.usfirst.frc.team2928.robot;
 
-import edu.wpi.first.wpilibj.IterativeRobot;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.RobotDrive.MotorType;
+import edu.wpi.first.wpilibj.SampleRobot;
 import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.Timer;
 
 /**
- * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the IterativeRobot
- * documentation. If you change the name of this class or the package after
- * creating this project, you must also update the manifest file in the resource
- * directory.
+ * This is a demo program showing how to use Mecanum control with the RobotDrive class.
  */
-public class Robot extends IterativeRobot {
+public class Robot extends SampleRobot {
 	
-	RobotDrive myRobot;
-	Joystick stick;
-	
-	private double magnitude;
-	private double direction;
-	private double rotation;
-	
-	Talon frontLeft, frontRight, rearLeft, rearRight;
-	
-	int autoLoopCounter;
-	
-    /**
-     * This function is run when the robot is first started up and should be
-     * used for any initialization code.
-     */
-    public void robotInit() {
-    	frontLeft = new Talon(1);
-    	frontRight = new Talon(3);
-    	rearLeft = new Talon(2);
-    	rearRight = new Talon(4);
-    	myRobot = new RobotDrive(frontLeft,rearLeft,frontRight,rearRight);
-    	stick = new Joystick(1);
-    	//stick.setAxisChannel(Joystick:kTwistAxis, 3);
+    RobotDrive robotDrive;
+    Joystick stick;
+
+    // Channels for the wheels
+    final Talon frontLeftChannel	= new Talon(2);
+    final Talon rearLeftChannel	= new Talon (3);
+    final Talon frontRightChannel	= new Talon (1);
+    final Talon rearRightChannel	= new Talon (4);
+    
+    // The channel on the driver station that the joystick is connected to
+    final int joystickChannel	= 0;
+
+    public Robot() {
+    
+        robotDrive = new RobotDrive(frontLeftChannel, rearLeftChannel, frontRightChannel, rearRightChannel);
+    	// you may need to change or remove this to match your robot
+
+        stick = new Joystick(joystickChannel);
     }
-    /**
-     * This function is run once each time the robot enters autonomous mode
-     */
-    public void autonomousInit() {
-    	autoLoopCounter = 0;
-    }
+        
 
     /**
-     * This function is called periodically during autonomous
+     * Runs the motors with Mecanum drive.
      */
-    public void autonomousPeriodic() {
-    	if(autoLoopCounter < 100) //Check if we've completed 100 loops (approximately 2 seconds)
-		{
-			myRobot.drive(-0.5, 0.0); 	// drive forwards half speed
-			autoLoopCounter++;
-			} else {
-			myRobot.drive(0.0, 0.0); 	// stop robot
-		}
-    }
-    
-    /**
-     * This function is called once each time the robot enters tele-operated mode
-     */
-    public void teleopInit(){
-    	 magnitude = stick.getMagnitude();
-    	 direction = stick.getDirectionDegrees();
-    	 rotation = stick.getX();
-    	
-    	 while(isOperatorControl() && isEnabled()){
-    		myRobot.mecanumDrive_Polar(magnitude, direction, rotation);
-    		Timer.delay(0.01);
-    		}
-    	    }
-
-    
-    /**
-     * This function is called periodically during operator control
-     */
-    public void teleopPeriodic() {
-    	 magnitude = stick.getMagnitude();
-    	 direction = stick.getDirectionDegrees();
-    	 rotation = stick.getX();
-        myRobot.mecanumDrive_Polar(magnitude, direction, rotation);
-    }
-    
-    /**
-     * This function is called periodically during test mode
-     */
-    public void testPeriodic() {
-    	LiveWindow.run();
+    public void operatorControl() {
+        robotDrive.setSafetyEnabled(true);
+        while (isOperatorControl() && isEnabled()) {
+        	
+        	// Use the joystick X axis for lateral movement, Y axis for forward movement, and Z axis for rotation.
+        	// This sample does not use field-oriented drive, so the gyro input is set to zero.
+            robotDrive.mecanumDrive_Cartesian(stick.getX(), stick.getY(), stick.getZ(), 0);
+            
+            Timer.delay(0.005);	// wait 5ms to avoid hogging CPU cycles
+        }
     }
     
 }
