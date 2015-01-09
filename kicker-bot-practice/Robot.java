@@ -43,7 +43,7 @@ public class Robot extends SampleRobot {
         	
         	// Use the joystick X axis for lateral movement, Y axis for forward movement, and Z axis for rotation.
         	// This sample does not use field-oriented drive, so the gyro input is set to zero.
-            robotDrive.mecanumDrive_Cartesian(stick.getX(), stick.getY(), stick.getZ(), 0);
+            robotDrive.mecanumDrive_Cartesian(stick.getZ(), stick.getY()/2, -stick.getX()/2, 0);
             
             Timer.delay(0.005);	// wait 5ms to avoid hogging CPU cycles
         }
