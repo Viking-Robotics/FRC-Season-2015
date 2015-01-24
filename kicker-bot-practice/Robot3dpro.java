@@ -75,7 +75,7 @@ public class Robot extends SampleRobot {
             	rearLeftChannel.set(rearLeftVoltage);
             	frontRightChannel.set(frontRightVoltage);
             	rearLeftChannel.set(rearLeftVoltage);
-            	if(stick.GetButton(halfSpeed) == true;)
+            	if(stick.GetRawButton(halfSpeed) == true;)
             	{
             	robotDrive.mecanumDrive_Cartesian(stick.getX()/2, stick.getY()/2, stick.getZ()/2, 0);
             		
