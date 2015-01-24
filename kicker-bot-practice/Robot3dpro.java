@@ -64,15 +64,23 @@ public class Robot extends SampleRobot {
                 rearRightVoltage = robotSpeedFL*Math.sin(robotAngleFL+(Math.PI/4)-robotStrafeFL);
             	
         	    
-            frontLeftChannel.set(frontLeftVoltage);
-            rearLeftChannel.set(rearLeftVoltage);
-            frontRightChannel.set(frontRightVoltage);
-            rearLeftChannel.set(rearLeftVoltage);
+            
         	// Use the joystick X axis for lateral movement, Y axis for forward movement, and Z axis for rotation.
-        	// This sample does not use fi
-            eld-oriented drive, so the gyro input is set to zero.
+        	// This sample does not use field-oriented drive, so the gyro input is set to zero.
             //Z and X are inverted because the joystick is stupid.
-        	robotDrive.mecanumDrive_Cartesian(stick.getX(), stick.getY(), stick.getZ(), 0);
+            if((stick.getX() > .2 || stick.getX()< -.2) || (stick.getY()>.2 || stick.getY <-.2) || (stick.getZ()>.2 || stick.getZ() <-.2))
+            {
+            	frontLeftChannel.set(frontLeftVoltage);
+            	rearLeftChannel.set(rearLeftVoltage);
+            	frontRightChannel.set(frontRightVoltage);
+            	rearLeftChannel.set(rearLeftVoltage);
+            	robotDrive.mecanumDrive_Cartesian(stick.getX(), stick.getY(), stick.getZ(), 0);
+            }
+            else
+            {
+            	
+            }
+        	
             
             Timer.delay(0.005);	// wait 5ms to avoid hogging CPU cycles
         }
