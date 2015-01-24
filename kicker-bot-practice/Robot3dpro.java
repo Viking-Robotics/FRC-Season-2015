@@ -36,6 +36,7 @@ public class Robot extends SampleRobot {
     double frontRightVoltage;
     double rearRightVoltage;
     public Robot() {
+    Button halfSpeed = new Button(7);
     
     	
     robotDrive = new RobotDrive(frontLeftChannel, rearLeftChannel, frontRightChannel, rearRightChannel);
@@ -55,7 +56,7 @@ public class Robot extends SampleRobot {
         robotDrive.setSafetyEnabled(true);
         while (isOperatorControl() && isEnabled()) {
         	   double robotSpeedFL = stick.getY();
-        	    double robotAngleFL = otherStick.getZ();
+        	    double robotAngleFL = stick.getZ();
         	    double robotStrafeFL = stick.getX();
         	    
         	    frontLeftVoltage =robotSpeedFL*Math.sin(robotAngleFL+(Math.PI/4)+robotStrafeFL);
@@ -74,7 +75,15 @@ public class Robot extends SampleRobot {
             	rearLeftChannel.set(rearLeftVoltage);
             	frontRightChannel.set(frontRightVoltage);
             	rearLeftChannel.set(rearLeftVoltage);
-            	robotDrive.mecanumDrive_Cartesian(stick.getX(), stick.getY(), stick.getZ(), 0);
+            	if(stick.GetButton(halfSpeed) == true;)
+            	{
+            	robotDrive.mecanumDrive_Cartesian(stick.getX()/2, stick.getY()/2, stick.getZ()/2, 0);
+            		
+            	}
+            	else
+            	{
+            		robotDrive.mechanumDrive_Cartesian(stick.getX(), stick.getY(), stick.getZ(), 0);
+            	}
             }
             else
             {
