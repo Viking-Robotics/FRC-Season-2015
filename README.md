@@ -29,11 +29,11 @@ http://wpilib.screenstepslive.com/s/3120/m/7882/l/79335-writing-the-code-for-a-p
     6) Deploy to the robot.
 
 
-    *PWM ref b/c electrical ppl keep changing stuff
-    final Talon frontLeftChannel = new Talon(2);
-    final Talon rearLeftChannel	= new Talon (3);
-    final Talon frontRightChannel = new Talon (1);
-    final Talon rearRightChannel = new Talon (4);
+*PWM ref b/c electrical ppl keep changing stuff:
+final Talon frontLeftChannel = new Talon(2);
+final Talon rearLeftChannel	= new Talon (3);
+final Talon frontRightChannel = new Talon (1);
+final Talon rearRightChannel = new Talon (4);
     
     
 Ok Team!
