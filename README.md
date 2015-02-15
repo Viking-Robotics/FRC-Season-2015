@@ -28,13 +28,15 @@ http://wpilib.screenstepslive.com/s/3120/m/7882/l/79335-writing-the-code-for-a-p
     5) Get rid of the lines that mention reversing two of the motors.
     6) Deploy to the robot.
     
-    
-    *PWM ref b/c electrical ppl keep changing stuff:
-    final Talon frontLeftChannel = new Talon(2);
-    final Talon rearLeftChannel	= new Talon (3);
-    final Talon frontRightChannel = new Talon (1);
-    final Talon rearRightChannel = new Talon (4);
-    
+    Electrical stuff as of 02/15/15:
+    final Solenoid s0 = new Solenoid(0); //r intake open
+    final Solenoid s1 = new Solenoid(1); //r intake close
+    final Solenoid s2 = new Solenoid(2); //r stacker open
+    final Solenoid s3 = new Solenoid(3); //r stacker close
+    final Solenoid s4 = new Solenoid(4); //l intake open
+    final Solenoid s5 = new Solenoid(5); //l intake close
+    final Solenoid s6 = new Solenoid(6); //l stacker open
+    final Solenoid s7 = new Solenoid(7); //l stacker closed
     
 Ok Team!
 =================================================
