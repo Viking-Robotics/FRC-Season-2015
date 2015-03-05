@@ -41,3 +41,8 @@ http://wpilib.screenstepslive.com/s/3120/m/7882/l/79335-writing-the-code-for-a-p
 Ok Team!
 =================================================
     
+TODO FOR SPOKANE (03-05-15):
+    -program the "brent device"
+    -change auton from secs to encoder feedback
+    -program linear potentiometers if available
+    -finish binding and labeling op controls
