@@ -24,11 +24,13 @@ public class GetStackt {
 	 CANTalon t2;
 	 
 	 int leftAnal1 =574;
-	 int leftAnal2 = 473;
+	 int leftAnal2 = 541;
 	 int leftAnal3 = 362;
+	 int leftAnal4=473;
 	 int rightAnal1 = 578;
-	 int rightAnal2 = 478;
+	 int rightAnal2 = 541;
 	 int rightAnal3 = 370;
+	 int tightAnal4 = 478;
 	 
 	JoystickButton b1;
 	JoystickButton b2;
@@ -83,18 +85,15 @@ public class GetStackt {
 
 	
 		public void Level1(){
-			s3.set(false);
-			s2.set(true);
-			s6.set(true);
-			s7.set(false);
+	
 		
 			
 		if(leftAnalPos < leftAnal1){
 				while(leftAnalPos < leftAnal1)
 				{
 				while(leftAnalPos < leftAnal1){
-						t2.set(-.25);
-						t1.set(.25);
+						t2.set(-.5);
+						t1.set(-.5);
 						return;
 					}
 					
@@ -106,8 +105,8 @@ public class GetStackt {
 				while(leftAnalPos > leftAnal1)
 				{
 					while(leftAnalPos > leftAnal1){
-						t2.set(.25);
-						t1.set(-.25);
+						t2.set(.5);
+						t1.set(.5);
 						return;
 					} 
 					return;
@@ -144,12 +143,9 @@ public class GetStackt {
 		}
 			
 		public void Level2(){
-			s3.set(true);
-			s2.set(false);
-			s6.set(false);
-			s7.set(true);
+		
 				if(leftAnalPos < leftAnal2){
-					while(leftAnalPos != leftAnal2)
+					while(leftAnalPos < leftAnal2)
 					{
 						while(leftAnalPos < leftAnal2){
 							t2.set(-.5);
@@ -162,7 +158,7 @@ public class GetStackt {
 				}
 				
 				if(leftAnalPos > leftAnal2){
-					while(leftAnalPos != leftAnal2)
+					while(leftAnalPos > leftAnal2)
 					{
 						while(leftAnalPos > leftAnal2){
 							t2.set(.5);
@@ -173,7 +169,7 @@ public class GetStackt {
 					}
 					
 				if(rightAnalPos < rightAnal2){
-					while(rightAnalPos != rightAnal2)
+					while(rightAnalPos < rightAnal2)
 					{
 						while(leftAnalPos < leftAnal1){
 							t2.set(-.5);
@@ -186,9 +182,9 @@ public class GetStackt {
 				}
 					
 				if(rightAnalPos > rightAnal2){
-						while(leftAnalPos != leftAnal2)
+						while(leftAnalPos > leftAnal2)
 						{
-							while(leftAnalPos < leftAnal1){
+							while(leftAnalPos > leftAnal1){
 								t2.set(.5);
 								t1.set(.5);
 								return;
@@ -200,14 +196,11 @@ public class GetStackt {
 			}
 		
 		public void Level3(){
-			s3.set(true);
-			s2.set(false);
-			s6.set(false);
-			s7.set(true);
+		
 			if(leftAnalPos < leftAnal3){
-				while(leftAnalPos != leftAnal3)
+				while(leftAnalPos < leftAnal3)
 				{
-					while(leftAnalPos < leftAnal1){
+					while(leftAnalPos < leftAnal3){
 						t2.set(-.5);
 						t1.set(-.5);
 						return;
@@ -218,9 +211,9 @@ public class GetStackt {
 			}
 			
 			if(leftAnalPos > leftAnal3){
-				while(leftAnalPos != leftAnal3)
+				while(leftAnalPos > leftAnal3)
 				{
-					while(leftAnalPos < leftAnal1){
+					while(leftAnalPos > leftAnal3){
 						t2.set(.5);
 						t1.set(.5);
 						return;
@@ -229,9 +222,9 @@ public class GetStackt {
 				}
 				
 			if(rightAnalPos < rightAnal3){
-				while(rightAnalPos != rightAnal3)
+				while(rightAnalPos < rightAnal3)
 				{
-					while(leftAnalPos < leftAnal1){
+					while(leftAnalPos < leftAnal3){
 						t2.set(-.5);
 						t1.set(-.5);
 						return;
@@ -242,9 +235,9 @@ public class GetStackt {
 			}
 				
 			if(rightAnalPos > rightAnal3){
-					while(leftAnalPos != leftAnal3)
+					while(leftAnalPos > leftAnal3)
 					{
-						while(leftAnalPos < leftAnal1){
+						while(leftAnalPos > leftAnal3){
 							t2.set(.5);
 							t1.set(.5);
 							return;
@@ -255,23 +248,30 @@ public class GetStackt {
 			
 			}
 		}
-		public void toggle()
+		public void clamp()
 		{
-				
-				s3.set(!s3.get());
-				s2.set(!s2.get());
-				s6.set(!s6.get());
-				s7.set(!s7.get());
+			s3.set(true);
+			s2.set(false);
+			s6.set(false);
+			s7.set(true);
 			
+		}
+		
+		public void unclamp()
+		{
+			s3.set(false);
+			s2.set(true);
+			s6.set(true);
+			s7.set(false);	
 		}
 		public void up()
 		{
-			t1.set(-.5);
+			t1.set(.5);
 			t2.set(.5);
 		}
 		public void down()
 		{
-			t1.set(.5);
+			t1.set(-.5);
 			t2.set(-.5);
 		}
 
@@ -354,5 +354,3 @@ public class GetStackt {
 			s6.set(false);
 			s7.set(true);
 		}*/
-		
-
