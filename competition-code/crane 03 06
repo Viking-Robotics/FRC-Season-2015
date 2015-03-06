@@ -30,26 +30,29 @@ public class Crane {
 		
 		this.up = thing;
 		this.down = thing2;
-		while(up.get()==true||down.get()==true)
-		{
+
 		
-			while(thing3.get())
-			{
-				lift.set(0);
-			}
+		
 			
 		while(this.up.get())
 		{
 			lift.set(1);
 			return;
 		}
+		lift.set(0);
 		while(this.down.get())
 		{
 			lift.set(-1);
 			return;
 		}
-		return;
-		}
+		lift.set(0);
+		
+		
+	}
+	public void baldSatan(Solenoid s1, Solenoid s2)
+	{
+		s1.set(!s1.get());
+		s2.set(!s2.get());
 		
 	}
 
