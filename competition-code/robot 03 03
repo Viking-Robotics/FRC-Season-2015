@@ -73,9 +73,9 @@ public class Robot extends SampleRobot {
 	{
 		Timer timer = new Timer();
 		timer.start();
-		boolean drive = SmartDashboard.getBoolean("Drive forward auto", false);
+		
 		while(isAutonomous() && isEnabled())
-		{	if(drive){
+		{	
 			while(timer.get() < 3.5)
 			{
 			
@@ -92,7 +92,7 @@ public class Robot extends SampleRobot {
 		}
 		}
 
-	}
+	
 	public void operatorControl() {
 		
 		
@@ -117,19 +117,30 @@ public class Robot extends SampleRobot {
 			i.takeInTote(otherStick, s0,s1, s4,s5);
 			GetStackt stack = new GetStackt(leftLifter, rightLifter,s2,s3,s6,s7, leftLifter.getAnalogInPosition(), rightLifter.getAnalogInPosition());
 			stack.Stack(otherStick, stick, 3,2,6,7, 8, 11);
-			JoystickButton b1 = new JoystickButton(anotherStick, 1);//lifter up
-			JoystickButton b2 = new JoystickButton(anotherStick, 3);//lifter down
-			JoystickButton b3 = new JoystickButton(anotherStick, 4);
-			JoystickButton b4 = new JoystickButton(anotherStick, 10);
-			JoystickButton b5 = new JoystickButton(anotherStick, 2);
-			JoystickButton b6 = new JoystickButton(anotherStick, 0);
-			boolean isToggled = false;
-			if(!isToggled){
-			if(b1.get())
+			//TODO: brent device, bind fred arms to pot, button 4
+			JoystickButton b1 = new JoystickButton(anotherStick, 5);//lifter up
+			JoystickButton b2 = new JoystickButton(anotherStick, 10);//lifter down
+			JoystickButton b3 = new JoystickButton(anotherStick, 11);//lvl 1
+			JoystickButton b4 = new JoystickButton(anotherStick, 3);//lvl 2
+		    JoystickButton b5 = new JoystickButton(anotherStick, 9);//toggle
+			JoystickButton b6 = new JoystickButton(anotherStick, 2);//lvl 3
+			JoystickButton b7 = new JoystickButton(anotherStick, 4);//???
+			if(b5.get())
+			{
+				
+				stack.unclamp();
+			
+			}
+			else if(!b5.get())
+			{
+				stack.clamp();
+				
+			}
+			if(b2.get())
 			{
 				stack.up();
 			}
-			if(b2.get())
+			else if(b1.get())
 			{
 				stack.down();
 			}
@@ -143,19 +154,15 @@ public class Robot extends SampleRobot {
 				stack.Level2();
 			}
 			
-			if(b6.get())
+			if(anotherStick.getTrigger())
 			{
 				stack.Level3();
 			}
-			}
-			if(b5.get())
-			{
-				isToggled = !isToggled;
-				stack.toggle();
-				Timer.delay(.05);
-			}
 			
-			crane.lift(otherStick, 3, 2, 4);
+			
+		
+			
+			crane.lift(otherStick, 6, 7, 4);
 			//crane.lift(d,e);
 
 			if((stick.getX() > .2 || stick.getX()< -.2) || (stick.getY()>.2 || stick.getY() <-.2) || (stick.getZ()>.35 || stick.getZ() <-.35))
